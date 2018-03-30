@@ -1,25 +1,41 @@
-# MTCNN
+# MTCNN CPP
+
 MTCNN
 Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks.
 
-this project is the https://github.com/kpzhang93/MTCNN_face_detection_alignment C++ version
+This project is forked from: https://github.com/wowo200/MTCNN . Which itself is a C++ version of: https://github.com/kpzhang93/MTCNN_face_detection_alignment
 
-using the trained model https://github.com/kpzhang93/MTCNN_face_detection_alignment
-
-
-
-##usage:
-1. compile the caffe program and copy the generating libcaffe to ./lib directory
-
-2. copy the caffe include directory to working directory
-
-3. mkdir build
-
-4. cmake ..
-
-5. make
-
-6. do test
+The models used here are trained and copied from the original project (https://github.com/kpzhang93/MTCNN_face_detection_alignment).
 
 
+This fork fixes some bugs over the original C++ version. Moreover, the source code layout is changed so that it can be used as 3rd party from other libraries.
+
+### Prerequisites
+
+- OpenCV (tested with 3.4)
+- Caffe (built with CUDA -- tested )
+- Boost (tested with 1.66)
+
+### Install
+ 
+ ```
+ $ cd projects
+ $ git clone https://github.com/vvirag/MTCNN.git
+ $ cd MTCNN
+ $ cmake-gui
+ ```
+ After selecting source and build directories, click ```Configure```.
+ If Caffe not found, define the path manually by setting up ```Caffe_INCLUDE_DIRS``` and ```Caffe_LIBS```.
+ Afterwards click ```Generate```.
+ 
+```
+$ cd build
+$ make
+```
+
+### Run
+```
+$ cd projects/MTCNN
+$ ./build/example/main.bin ../sample_inputs/image_folder_containing_jpgs_or_jpegs/
+```
 
