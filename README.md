@@ -36,6 +36,6 @@ $ make
 ### Run
 ```
 $ cd projects/MTCNN
-$ ./build/example/main.bin ../sample_inputs/image_folder_containing_jpgs_or_jpegs/
+$ ./build/example/main.bin ../path_to_image_folder_containing_jpgs_or_jpegs/
 ```
 
