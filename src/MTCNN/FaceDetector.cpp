@@ -552,10 +552,11 @@ namespace mtcnn
 					cv::Rect cuted_rect = rect & img_rect;
 					cv::Rect inner_rect(cuted_rect.x - rect.x, cuted_rect.y - rect.y,
 						cuted_rect.width, cuted_rect.height);
+
 					for(int j = 0; j < num_channels_; j++)
 					{
 						cv::Mat tmp(rect.height, rect.width, CV_32F, cv::Scalar(0.0));
-						sample_norm_channels[k](cuted_rect).copyTo(tmp(inner_rect));
+						sample_norm_channels[j](cuted_rect).copyTo(tmp(inner_rect));
 						cv::resize(tmp, n_channels[i * 5 * num_channels_ + k * num_channels_ + j], cv::Size(24,24));
 					}
 				}
