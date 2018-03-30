@@ -37,7 +37,8 @@ void readFileList(const char* basePath, std::vector<std::string>& imgFiles)
         else if(ptr->d_type == 8)//file 
         {
             int len = strlen(ptr->d_name);
-            if(ptr->d_name[len-1] == 'g' && ptr->d_name[len-2] == 'p' && ptr->d_name[len-3] == 'j')
+            if (	(ptr->d_name[len-1] == 'g' && ptr->d_name[len-2] == 'p' && ptr->d_name[len-3] == 'j')
+            	||	(ptr->d_name[len-1] == 'g' && ptr->d_name[len-2] == 'e' && ptr->d_name[len-3] == 'p' && ptr->d_name[len-4] == 'j'))
             {
                 memset(base, '\0', sizeof(base));
                 strcpy(base, basePath);
@@ -49,7 +50,8 @@ void readFileList(const char* basePath, std::vector<std::string>& imgFiles)
         else if(ptr->d_type == 10)/// link file
         {
             int len = strlen(ptr->d_name);
-            if(ptr->d_name[len-1] == 'g' && ptr->d_name[len-2] == 'p' && ptr->d_name[len-3] == 'j')
+            if (	(ptr->d_name[len-1] == 'g' && ptr->d_name[len-2] == 'p' && ptr->d_name[len-3] == 'j')
+            	||	(ptr->d_name[len-1] == 'g' && ptr->d_name[len-2] == 'e' && ptr->d_name[len-3] == 'p' && ptr->d_name[len-4] == 'j'))
             {
                 memset(base, '\0', sizeof(base));
                 strcpy(base, basePath);
@@ -74,13 +76,18 @@ void readFileList(const char* basePath, std::vector<std::string>& imgFiles)
 
 int main(int argc, char **argv) {
     //std::cout << "Hello, world!" << std::endl;
-    mtcnn::FaceDetector fd("models/v2", mtcnn::FaceDetector::MODEL_V1);
+    mtcnn::FaceDetector fd("models/modelv2", mtcnn::FaceDetector::MODEL_V2);
+    std::cout << "LOADED.\n";
+    std::string path = argv[1];
     
+    std::cout << "argv[1]=" << path << std::endl;
+
     std::vector<std::string> imgList;
-    readFileList("/media/rcnn/DATA/data/CASIA-WebFace", imgList);
+    readFileList(path.c_str(), imgList);
     for(int l = 0; l < imgList.size(); l ++)
     {
-        cv::Mat testImg = cv::imread(imgList[l]);
+        std::cout << "processing:" << imgList[l] << std::endl;
+    	cv::Mat testImg = cv::imread(imgList[l]);
         
         std::vector<mtcnn::FaceDetector::BoundingBox> res = fd.Detect(testImg, mtcnn::FaceDetector::BGR, mtcnn::FaceDetector::ORIENT_UP ,20, 0.6, 0.7, 0.7);
         std::cout<< "detected face NUM : " << res.size() << std::endl;
