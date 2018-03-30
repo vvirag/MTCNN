@@ -398,7 +398,7 @@ namespace mtcnn
 			//cout<<globalFilterBoxes.size()<<endl;
 			//totalBoxes = globalFilterBoxes;
 			totalBoxes.clear();
-			std::cout<<totalBoxes.size()<<std::endl;
+			//std::cout<<totalBoxes.size()<<std::endl;
 			for(int i = 0; i < globalFilterBoxes.size(); i ++)
 			{
 				float regw = globalFilterBoxes[i].y2 - globalFilterBoxes[i].y1 ;
