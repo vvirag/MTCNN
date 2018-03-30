@@ -1,0 +1,105 @@
+######################### Binary Files #########################
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.cuo
+
+# Compiled Dynamic libraries
+*.so*
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# Compiled protocol buffers
+*.pb.h
+*.pb.cc
+*_pb2.py
+
+# Compiled python
+*.pyc
+
+# Compiled MATLAB
+*.mex*
+
+# IPython notebook checkpoints
+.ipynb_checkpoints
+
+# LevelDB files
+*.sst
+*.ldb
+LOCK
+LOG*
+CURRENT
+MANIFEST-*
+
+######################### IDEs Files #########################
+# Editor temporaries
+*.swp
+*~
+
+# Sublime Text settings
+*.sublime-workspace
+*.sublime-project
+
+# Eclipse Project settings
+*.*project
+.settings
+
+# QtCreator files
+*.user
+
+# PyCharm files
+.idea
+
+# OSX dir files
+.DS_Store
+
+# Vim files
+cscope.*
+tags
+.clang_complete
+.vim
+
+# Windows (Visual Studio) Files
+*.db
+*.deps
+*.obj
+*.opendb
+*.pdb
+
+# Windows (Visual Studio) Folders and Compressed files
+*.vs/
+*x64/
+
+# Allowing this file (removed *.user for Qt)
+!*.vcxproj.user
+
+
+
+######################### Compilation (build, distribute & bins) Files / Folders #########################
+# User's build configuration
+Makefile
+Makefile.config
+
+*.bin
+*.testbin
+build
+build*
+.build*
+*cmake_build
+distribute/*
+
+######################### Video Files #########################
+# Testing videos
+*.mp4
+*.mov
+*.avi
+
+######################### Validation Scripts & Testing #########################
+output*/
+*.log
+log.txt
